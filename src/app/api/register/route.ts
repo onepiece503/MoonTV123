@@ -70,7 +70,7 @@ export async function POST(req: NextRequest) {
 
     const config = await getConfig();
     // 校验是否开放注册
-    if (config.UserConfig.AllowRegister) {
+    if (!config.UserConfig.AllowRegister) {
       return NextResponse.json({ error: '当前未开放注册' }, { status: 400 });
     }
 
